@@ -1,0 +1,13 @@
+/* line 3, sass/style.scss */
+#grid {
+  width: 980px;
+}
+
+/* line 7, sass/style.scss */
+.block {
+  height: 53px;
+  width: 39px;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
