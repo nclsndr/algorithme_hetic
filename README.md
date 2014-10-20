@@ -1,2 +1,6 @@
-algorithme_hetic
-================
+Projets Algorithme
+==================
+
+##Ressources :
+
+[Majhong JS](http://www.masswerk.at/mahjong/)
