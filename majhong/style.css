@@ -1,13 +1,26 @@
 /* line 3, sass/style.scss */
 #grid {
-  width: 980px;
+  width: 945px;
+  margin: auto;
+  position: relative;
 }
 
 /* line 7, sass/style.scss */
 .block {
-  height: 53px;
-  width: 39px;
+  height: 91px;
+  width: 63px;
   float: left;
   margin: 0;
   padding: 0;
+}
+
+.block img{
+	height: 91px;
+	width: 63px;
+}
+
+#grid .layout{
+	width: 100%;
+	height: auto;
+	position: absolute;
 }
