@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tableau Associatif</title>
+    </head>
+    <body>
+        <div class="contain">
+        	<div class="add">
+        		<h2>Add Student</h2>
+        		<input type="text" placeholder="name" id="name">
+	        	<input type="text" placeholder="firstname" id="firstname">
+	        	<input type="number" placeholder="From ... years" id="old">
+	        	<button id="add_student" >Ajouter un étudiant</button>
+        	</div>
+        	<div class="compare">
+        		<h2>Search in class</h2>
+        		<input type="text" placeholder="search" id="search">
+        		<span id="result"></span>
+        	</div>
+        </div>
+        <div>
+        	<h2>List of Students</h2>
+        	<ul id="render">
+        		
+        	</ul>
+        </div>
+    	<script type="text/javascript">
+    	var renderBox = document.getElementById('render');
+    	var ClassRoom = [
+    		{
+    			name : 'Name 1',
+    			firstname : 'Firstname 1',
+    			old : 2
+    		}
+    	];
+    		
+
+    	function addStudent(){
+    		var studentObj = {
+    			name : document.getElementById('name').value,
+    			firstname : document.getElementById('firstname').value,
+    			old : document.getElementById('old').value
+    		};
+    		ClassRoom.push(studentObj);
+    		render();
+    	}
+
+    	document.getElementById('add_student').addEventListener('click', addStudent, false);
+
+    	function render(){
+    		renderBox.innerHTML = '';
+    		for (var i = 0; i < ClassRoom.length; i++) {
+    			var li = document.createElement('li');
+    			li.innerHTML = 'Name : '+ClassRoom[i].name+' firstname : '+ClassRoom[i].firstname+' From : '+ClassRoom[i].old;
+    			renderBox.appendChild(li); 
+    		};
+    	}
+    	render();
+
+    	var searchInput = document.getElementById('search');
+    	var result = document.getElementById('result');
+    	function searchStudent(){
+    		var value = searchInput.value;
+    		for (var i = 0; i < ClassRoom.length; i++) {
+    			if (ClassRoom[i].name== value || ClassRoom[i].firstname== value || ClassRoom[i].old== parseInt(value)) {
+    				result.innerHTML  ='In Class';
+    				return true;
+    			}
+    		};
+    		result.innerHTML  ='Not In Class';
+    	}
+
+    	searchInput.addEventListener('keyup', searchStudent, false);
+
+    	</script>
+    </body>
+</html>
+
+
+
+
+
+

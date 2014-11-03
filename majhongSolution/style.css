@@ -1,0 +1,129 @@
+
+#jeu{
+	width:711px;
+	position:relative;
+	margin:auto;
+}
+.piece
+{
+	width:79px;
+	height: 107px;
+	position:absolute;
+}
+.couche{position:absolute;}
+/*.pieceJouable{
+	-webkit-box-shadow: 6px 6px 0px 0px rgba(50, 50, 50, 1);
+-moz-box-shadow:    6px 6px 0px 0px rgba(50, 50, 50, 1);
+box-shadow:         6px 6px 0px 0px rgba(50, 50, 50, 1);
+border:1px solid #666;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}*/
+.pieceJouable.pieceEnCours{
+	border-top:1px solid #96afe0;
+	border-left:1px solid #96afe0;
+	border-right:9px solid #96afe0;
+	border-bottom:9px solid #96afe0;
+}
+
+.pieceJouable{
+	border-top:1px solid #999;
+	border-left:1px solid #999;
+	border-right:9px solid #e0c796;
+	border-bottom:9px solid #e0c796;
+	-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+
+
+
+.piece_01{background: url('images/p_01.png') no-repeat;}
+.piece_02{background: url('images/p_02.png') no-repeat;}
+.piece_03{background: url('images/p_03.png') no-repeat;}
+.piece_04{background: url('images/p_04.png') no-repeat;}
+.piece_05{background: url('images/p_05.png') no-repeat;}
+.piece_06{background: url('images/p_06.png') no-repeat;}
+.piece_07{background: url('images/p_07.png') no-repeat;}
+.piece_01{background: url('images/p_01.png') no-repeat;}
+.piece_08{background: url('images/p_08.png') no-repeat;}
+.piece_09{background: url('images/p_09.png') no-repeat;}
+
+.piece_10{background: url('images/p_10.png') no-repeat;}
+.piece_11{background: url('images/p_11.png') no-repeat;}
+.piece_12{background: url('images/p_12.png') no-repeat;}
+.piece_13{background: url('images/p_13.png') no-repeat;}
+.piece_14{background: url('images/p_14.png') no-repeat;}
+.piece_15{background: url('images/p_15.png') no-repeat;}
+.piece_16{background: url('images/p_16.png') no-repeat;}
+.piece_17{background: url('images/p_17.png') no-repeat;}
+.piece_11{background: url('images/p_11.png') no-repeat;}
+.piece_18{background: url('images/p_18.png') no-repeat;}
+.piece_19{background: url('images/p_19.png') no-repeat;}
+
+
+.piece_20{background: url('images/p_20.png') no-repeat;}
+.piece_21{background: url('images/p_21.png') no-repeat;}
+.piece_22{background: url('images/p_22.png') no-repeat;}
+.piece_23{background: url('images/p_23.png') no-repeat;}
+.piece_24{background: url('images/p_24.png') no-repeat;}
+.piece_25{background: url('images/p_25.png') no-repeat;}
+.piece_26{background: url('images/p_26.png') no-repeat;}
+.piece_27{background: url('images/p_27.png') no-repeat;}
+.piece_21{background: url('images/p_21.png') no-repeat;}
+.piece_28{background: url('images/p_28.png') no-repeat;}
+.piece_29{background: url('images/p_29.png') no-repeat;}
+
+
+
+.piece_30{background: url('images/p_30.png') no-repeat;}
+.piece_31{background: url('images/p_31.png') no-repeat;}
+.piece_32{background: url('images/p_32.png') no-repeat;}
+
+
+
+
+/*
+
+#couche_0 .pieceJouable{
+-moz-box-shadow: 5px 10px 5px 0px #333;
+-webkit-box-shadow: 5px 10px 5px 0px #333;
+-o-box-shadow: 5px 10px 5px 0px #333;
+box-shadow: 5px 10px 5px 0px #333;
+filter:progid:DXImageTransform.Microsoft.Shadow(color=#333, Direction=180, Strength=5);
+}
+#couche_1{
+	left:-3px;
+}
+#couche_1 .pieceJouable{
+-moz-box-shadow: 5px 10px 5px 0px #666;
+-webkit-box-shadow: 35px 10px 5px 0px #666;
+-o-box-shadow: 5px 10px 5px 0px #666;
+box-shadow: 5px 10px 5px 0px #666666;
+filter:progid:DXImageTransform.Microsoft.Shadow(color=#666, Direction=180, Strength=5);
+}
+#couche_2{
+	left:-6px;
+}
+#couche_2 .pieceJouable{
+-moz-box-shadow: 5px 10px 5px 0px #999;
+-webkit-box-shadow: 5px 10px 5px 0px #999;
+-o-box-shadow:5px 10px 5px 0px #999;
+box-shadow: 5px 10px 5px 0px #999;
+filter:progid:DXImageTransform.Microsoft.Shadow(color=#999, Direction=180, Strength=5);
+}
+
+#couche_3{
+	left:-9px;
+}
+#couche_3 .pieceJouable{
+-moz-box-shadow: 5px 10px 5px 0px #CCC;
+-webkit-box-shadow: 5px 10px 5px 0px #CCC;
+-o-box-shadow: 5px 10px 5px 0px #CCC;
+box-shadow: 5px 10px 5px 0px #CCC;
+filter:progid:DXImageTransform.Microsoft.Shadow(color=#CCC, Direction=180, Strength=5);
+}
+
+
+*/

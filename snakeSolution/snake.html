@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Document sans nom</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="jquery.hotkeys-0.7.9.min.js"></script>
+<script src="scripts/snakeClass.js"></script>
+<script src="scripts/diamondClass.js"></script>
+ <style>
+ #jeu{margin:auto;width:640px; height:350px; border:2px solid #ECECEC;position:relative;}
+ .snake{width:10px;height:10px; background:#F00;left:;}
+
+ #jeu div{position:absolute;}
+ .elemQueue{width:10px;height:10px;background:#0F0;}
+ .bijou{width:10px;height:10px;background:url(diamond.png);}
+
+
+ </style>
+</head>
+
+<body>
+<div id="jeu">
+	
+</div>
+<script>
+$(document).ready(function() {
+
+	var game = function(interval)
+	{
+		joueur1=new snake("joueur1","30px","0px");
+		joueur1.afficherSnake();
+		joueur1.afficherQueue();
+
+		joueur2=new snake("joueur2","30px","300px");
+		joueur2.afficherSnake();
+		joueur2.afficherQueue();
+
+		rubis= new diamond();
+		rubis.afficherDiamond();
+		setInterval(function() {
+
+
+		 joueur1.bougerSnake();
+		 joueur2.bougerSnake();
+		 
+
+    	}, interval);
+
+	}
+
+ var game= new game(200);
+
+
+ $(document).keypress(function(event){
+			var keydown=String.fromCharCode(event.keyCode);
+			if(keydown=="z"){joueur1.direction="top";}
+			else if(keydown=="q"){joueur1.direction="left";}
+			else if(keydown=="d"){joueur1.direction="right";}
+			else if(keydown=="s"){joueur1.direction="bottom";}
+
+			if(keydown=="o"){joueur2.direction="top";}
+			else if(keydown=="k"){joueur2.direction="left";}
+			else if(keydown=="m"){joueur2.direction="right";}
+			else if(keydown=="l"){joueur2.direction="bottom";}
+		  });	
+
+});
+
+
+function inArray(elem,tab){
+
+	for(var i=0; i<tab.length; i++)
+	{
+		if(elem==tab[i])
+		{
+			return true;
+		}
+		return false;
+	}
+
+
+}
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
