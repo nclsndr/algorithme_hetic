@@ -14,11 +14,12 @@ var Settings ={
 	colors : ['#f3c227', '#f26711', '#bdc9f2', '#5d9593','#003e08', '#631826', '#101125', '#F1CAAB']
 }
 
-function Game(){
+function Game(username){
+	this.username = username;
 	this.combination = [];
 	this.init = function(){
 		self.newGame();
-		UI.init();
+		UI.init(username);
 	}
 	this.newGame = function(){
 		for (var i = 0; i < Settings.range; i++) {
@@ -35,5 +36,5 @@ function generateRandom(colors){
 
 }
 
-var instanceOfGame = new Game();
+var instanceOfGame = new Game('Super Paul');
 instanceOfGame.init();

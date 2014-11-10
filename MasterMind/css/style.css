@@ -40,6 +40,10 @@ header h1{
 .hidden, .hide{
 	display: none;
 }
+.clearfix{
+	clear: both;
+	zoom:1;
+}
 .row{
 	clear: both;
 }
