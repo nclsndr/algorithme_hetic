@@ -16,17 +16,27 @@ var UI = {
 	},
 	items:function(callback){
 		var elems = document.createElement('div');
-		for (var i = 0; i <= Settings.range; i++) {
-			var elem = document.createElement('span');
-			elem.setAttribute('class', 'mapper_elem');
-			elem.setAttribute('data-pos', i);
-			elems.appendChild(elem);
-			if (i == Settings.range) {
+
+		var pions = document.createElement('div');
+		pions.setAttribute('class', 'pions');
+
+		for (var i = 0; i < Settings.range; i++) {
+			var pawn = document.createElement('span');
+			pawn.setAttribute('class', 'mapper_elem');
+			pawn.setAttribute('data-pos', i);
+			pions.appendChild(pawn);
+			if (i == Settings.range-1) {
 				var clear = document.createElement('div');
 				clear.setAttribute('class', 'clearfix');
-				elems.appendChild(clear);
+				pions.appendChild(clear);
 			}
 		}
+		var results = document.createElement('div');
+		results.setAttribute('class', 'results');
+
+		elems.appendChild(pions);
+		elems.appendChild(results);
+
 		return callback.call(this, elems);
 	},
 	row:function(singleRow, callback){
