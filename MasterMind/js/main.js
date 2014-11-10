@@ -36,5 +36,7 @@ function Game(username){
 document.getElementById('start_bt').addEventListener('click', function(){
 	document.getElementById('start').classList.add("hide");
 	document.getElementById('game').classList.remove("hide");
-	instanceOfGame = new Game('Paul fatigué').init();
+	
 }, false);
+
+instanceOfGame = new Game('Paul fatigué').init();

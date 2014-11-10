@@ -1,5 +1,7 @@
 var UI = {
+	currentStep:0,
 	init:function(username){
+		UI.currentStep = 0;
 		UI.items(function(singleRow){
 			UI.row(singleRow, function(rows){
 				UI.render.mapper(rows, function(){
@@ -10,7 +12,12 @@ var UI = {
 				});
 			});
 		});
-		UI.render.colors();
+		UI.render.colors(function(){
+			var spans = document.getElementsByClassName('color');
+			 for (var i = 0; i < spans.length; i++) {
+			 	spans[i].addEventListener('click',UI.clickColor, false);
+			 };
+		});
 		UI.render.username(username);
 		// console.log(mapper);
 	},
@@ -59,14 +66,16 @@ var UI = {
 			document.getElementById('mapper').appendChild(domElem);
 			return callback.call(this);
 		},
-		colors:function(){
+		colors:function(callback){
 			var colorsBox = document.getElementById('colors');
 			for (var i = 0; i < Settings.colors.length; i++) {
 				var color = document.createElement('span');
 				color.setAttribute('class', 'color');
+				color.setAttribute('data-color', Settings.colors[i]);
 				color.style.backgroundColor = Settings.colors[i];
 				colorsBox.appendChild(color);
 			};
+			callback.call(this);
 		},
 		username:function(username){
 			document.getElementById('username').innerHTML = username;
@@ -74,6 +83,20 @@ var UI = {
 	},
 	clickMapper:function(e){
 		e.target
+	},
+	clickColor:function(e){
+		var from = e.target.getAttribute('data-color');
+		var targetColors = document.getElementById('row_'+UI.currentStep).getElementsByClassName('pions')[0].getElementsByClassName('mapper_elem');
+
+		for (var i = 0; i < targetColors.length; i++) {
+			if (!targetColors[i].getAttribute('data-color')) {
+				targetColors[i].setAttribute('data-color', from);
+				targetColors[i].style.backgroundColor = from;
+				return
+			}	
+		};
+		
+
 	}
 
 }
