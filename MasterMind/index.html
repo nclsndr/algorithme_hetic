@@ -13,9 +13,13 @@
 <body>
 	<div class="container">
 		<header>
-			<h1>Master Mind</h1>
+			<h1>Mastermind</h1>
+			<div class="info">
+				<span>i</span>
+			</div>
+			<div class="clearfix"></div>
 		</header>
-		<div id="start" class="">
+		<div id="start" class="hide">
 			<button id="start_bt" class="start-game animated fadeInUp">Nouvelle partie</button>
 			<div class="rules">
 				<h2>Règles du jeu</h2>
@@ -27,10 +31,10 @@
 				</ul>
 			</div>
 		</div>
-		<div id="game" class="hide">
+		<div id="game">
 			<div id="user" class="block-user">
 
-				<h3 id="username"></h3>
+				<h3 id="username" class=""></h3>
 				<div id="colors" class="colors"></div>
 			</div>
 			<div id="mapper" class="block-game">
