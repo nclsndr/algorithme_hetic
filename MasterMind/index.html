@@ -1,30 +1,43 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Untitled</title>
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="author" href="humans.txt">
-    </head>
-    <body>
-    	<header>
-    		<h1>Master Mind</h1>
-    	</header>
-    	<div id="start">
-    		<button></button>
-    	</div>
-    	<div id="game" class="hide">
-	    	<div id="user">
-	        	
-	        </div>
-	        <div id="mapper">
-	        	
-	        </div>
-    	</div>
-        
-        <script src="js/ui.js"></script>
-        <script src="js/main.js"></script>
-    </body>
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Untitled</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="author" href="humans.txt">
+</head>
+<body>
+	<div class="container">
+		<header>
+			<h1>Master Mind</h1>
+		</header>
+		<div id="start">
+			<button class="start-game animated fadeInUp">Nouvelle partie</button>
+			<div class="rules">
+				<h2>Règles du jeu</h2>
+				<ul class="rules-list">
+					<li>Dechiffrer la combinaison secrète</li>
+					<li>4 pions de couleurs</li>
+					<li>10 tentatives maximum</li>
+					<li>Des indices au fur et à mesure</li>
+				</ul>
+			</div>
+		</div>
+		<div id="game" class="hide">
+			<div id="user">
+
+			</div>
+			<div id="mapper">
+
+			</div>
+		</div>
+	</div>
+
+	<script src="js/ui.js"></script>
+	<script src="js/main.js"></script>
+</body>
 </html>
