@@ -47,7 +47,17 @@ header h1{
 
 .block-user{
 	float: left;
-	width: 350px;
+	max-width: 350px;
+	max-height: 250px;
+	border-right: 1px solid #000;
+	padding-top: 45px;
+	padding-bottom: 45px;
+}
+
+.block-user h3{
+	margin: 0;
+	padding: 0;
+	text-align: center;
 }
 
 .block-user span{
@@ -59,13 +69,22 @@ header h1{
 	-webkit-border-radius: 50px;
 	-moz-border-radius: 50px;
 	-o-border-radius: 50px;
-	margin-left: 7px;
-	margin-right: 7px;
+	margin: 14px 14px 0 0;
+}
+
+span:hover{
+	cursor: pointer;
+	transform: scale(1.25);
+}
+
+.block-user .colors{
+	max-width: 180px;
 }
 
 .block-game{
 	float: left;
-	width: 610px;
+	width: 500px;
+	margin-left: 150px;
 }
 
 .block-game span{
@@ -73,7 +92,12 @@ header h1{
 	float: left;
 	width: 30px;
 	height: 30px;
-	background-color: red;
+	margin-left: 75px;
+	background-color: #000;
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	-o-border-radius: 50px;
 }
 
 .row{
