@@ -9,12 +9,37 @@ body{
 }
 
 header h1{
+	float: left;
 	text-align: center;
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 	font-size: 60px;
 	color: #000;
 	text-transform: uppercase;
+}
+
+header .info{
+	float: left;
+	margin-left: 200px;
+	margin-top: 59px;
+}
+
+header .info span{
+	display: block;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 25px;
+	border: 3px solid #000;
+	border-radius: 50px;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	-o-border-radius: 50px;
+}
+
+header .info span:hover{
+	/*transform: scale(1);*/
 }
 
 #start{
@@ -93,6 +118,7 @@ span:hover{
 	width: 30px;
 	height: 30px;
 	margin-left: 75px;
+	margin-top: 30px;
 	background-color: #000;
 	border-radius: 50px;
 	-webkit-border-radius: 50px;
@@ -102,6 +128,10 @@ span:hover{
 
 .row{
 	clear: both;
+}
+.active{
+	transform: scale(1.25);
+	filter: blur(5px);
 }
 /*span{
 	display: block;
