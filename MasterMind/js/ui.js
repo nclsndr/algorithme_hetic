@@ -11,6 +11,7 @@ var UI = {
 					 	spans[i].addEventListener('dragstart', UI.dragColor, false);
 					 	spans[i].addEventListener('dragover', UI.dragOver, false);
 					 	spans[i].addEventListener('drop', UI.dropColor, false);
+					 	spans[i].addEventListener('dragend', UI.dragEnd, false);
 					 };
 				});
 			});
@@ -20,6 +21,8 @@ var UI = {
 			 for (var i = 0; i < spans.length; i++) {
 			 	spans[i].addEventListener('click',UI.clickColor, false);
 			 	spans[i].addEventListener('dragstart', UI.dragColor, false);
+			 	spans[i].addEventListener('dragover', UI.dragOver, false);
+				spans[i].addEventListener('drop', UI.dropColor, false);
 			 };
 		});
 		UI.render.username(username);
@@ -103,6 +106,7 @@ var UI = {
 		};
 	},
 	dragColor: function(e){
+		console.log('Drag start');
 		console.log(e.target);
 		var span = e.target;
 		if(span.getAttribute('data-color') != null){
@@ -115,9 +119,26 @@ var UI = {
 	},
 	dropColor: function(e){
 		e.preventDefault();
+		console.log('Drop');
+		console.log(e.target);
 		var color = e.dataTransfer.getData('text');
-		e.target.setAttribute('data-color', color);
-		e.target.style.backgroundColor = color;
+
+		if(e.target.className == 'mapper_elem'){
+			e.target.setAttribute('data-color', color);
+			e.target.style.backgroundColor = color;
+		}else if(e.target.className == 'color'){
+			if(e.target.getAttribute('data-color') == color){
+
+			}else{
+				alert('mauvaise couleur');
+			}
+		}
+	},
+	dragEnd: function(e){
+		console.log('drag end');
+		console.log(e.target);
+		e.target.removeAttribute('data-color');
+		e.target.style.backgroundColor = '#000';
 	}
 
 }
