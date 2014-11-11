@@ -8,7 +8,12 @@ body{
 	margin: 0 auto;
 }
 
+header{
+	text-align: center;
+}
+
 header h1{
+	margin-left: 380px;
 	float: left;
 	text-align: center;
 	font-family: 'Open Sans', sans-serif;
@@ -20,8 +25,8 @@ header h1{
 
 header .info{
 	float: left;
-	margin-left: 200px;
 	margin-top: 59px;
+	margin-left: 100px;
 }
 
 header .info span{

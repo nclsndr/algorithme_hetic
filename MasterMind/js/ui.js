@@ -8,6 +8,9 @@ var UI = {
 					 var spans = document.getElementsByClassName('mapper_elem');
 					 for (var i = 0; i < spans.length; i++) {
 					 	spans[i].addEventListener('click',UI.clickMapper, false);
+					 	spans[i].addEventListener('dragstart', UI.dragColor, false);
+					 	spans[i].addEventListener('dragover', UI.dragOver, false);
+					 	spans[i].addEventListener('drop', UI.dropColor, false);
 					 };
 				});
 			});
@@ -16,6 +19,7 @@ var UI = {
 			var spans = document.getElementsByClassName('color');
 			 for (var i = 0; i < spans.length; i++) {
 			 	spans[i].addEventListener('click',UI.clickColor, false);
+			 	spans[i].addEventListener('dragstart', UI.dragColor, false);
 			 };
 		});
 		UI.render.username(username);
@@ -31,6 +35,7 @@ var UI = {
 			var pawn = document.createElement('span');
 			pawn.setAttribute('class', 'mapper_elem');
 			pawn.setAttribute('data-pos', i);
+			pawn.setAttribute('draggable', true);
 			pions.appendChild(pawn);
 			if (i == Settings.range-1) {
 				var clear = document.createElement('div');
@@ -72,6 +77,7 @@ var UI = {
 				var color = document.createElement('span');
 				color.setAttribute('class', 'color');
 				color.setAttribute('data-color', Settings.colors[i]);
+				color.setAttribute('draggable', true);
 				color.style.backgroundColor = Settings.colors[i];
 				colorsBox.appendChild(color);
 			};
@@ -93,10 +99,25 @@ var UI = {
 				targetColors[i].setAttribute('data-color', from);
 				targetColors[i].style.backgroundColor = from;
 				return
-			}	
+			}
 		};
-		
+	},
+	dragColor: function(e){
+		console.log(e.target);
+		var span = e.target;
+		if(span.getAttribute('data-color') != null){
+			e.dataTransfer.setData('text', span.getAttribute('data-color'));
+		}
 
+	},
+	dragOver: function(e){
+		e.preventDefault();
+	},
+	dropColor: function(e){
+		e.preventDefault();
+		var color = e.dataTransfer.getData('text');
+		e.target.setAttribute('data-color', color);
+		e.target.style.backgroundColor = color;
 	}
 
 }
