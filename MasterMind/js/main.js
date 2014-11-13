@@ -15,6 +15,8 @@ var Settings ={
 }
 var instanceOfGame;
 
+var Game;
+
 function Game(username){
 	this.username = username;
 	this.combination = [];
@@ -31,6 +33,25 @@ function Game(username){
 		}
 		console.log(self.combination);
 	}
+
+	this.nextStep = function(){
+		var code = Model.code;
+
+		if(code.length == Settings.range){
+			console.log(Game.combination);
+			for(var i = 0; i < code.length; i++){
+				if(Game.combination.indexOf(code[i]) != -1){
+
+				}else{
+					UI.render.helper(i, 'black');
+				}
+			}
+
+
+			Model.nextStep();
+		}
+	}
+
 	var self = this;
 	return this;
 }
@@ -39,6 +60,7 @@ document.getElementById('start_bt').addEventListener('click', function(){
 	document.getElementById('start').classList.add("hide");
 	document.getElementById('game').classList.remove("hide");
 
-	instanceOfGame = new Game('Paul fatigué').init();
-}, false);
+	Game = new Game('Paul fatigué');
+	Game.init();
 
+}, false);

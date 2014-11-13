@@ -28,6 +28,7 @@ var UI = {
 				spans[i].addEventListener('drop', UI.dropColor, false);
 			};
 		});
+		document.getElementById('validate').addEventListener('click', Game.nextStep, false);
 		UI.render.username(username);
 		// console.log(mapper);
 	},
@@ -52,6 +53,14 @@ var UI = {
 		}
 		var results = document.createElement('div');
 		results.setAttribute('class', 'results');
+
+		for (var i = 0; i < Settings.range; i++) {
+			var span = document.createElement('span');
+			span.setAttribute('id', 'result-'+i);
+			span.setAttribute('class', 'result');
+			span.setAttribute('data-result', i);
+			results.appendChild(span);
+		}
 
 		elems.appendChild(pions);
 		elems.appendChild(results);
@@ -95,6 +104,9 @@ var UI = {
 		},
 		username:function(username){
 			document.getElementById('username').innerHTML = username;
+		},
+		helper: function(key, color){
+
 		}
 	},
 
@@ -129,8 +141,8 @@ var UI = {
 		};
 	},
 	dragColor: function(e){
-		console.log('Drag start');
-		console.log(e.target);
+		//console.log('Drag start');
+		//console.log(e.target);
 
 		UI.showMove('on');
 
@@ -146,19 +158,23 @@ var UI = {
 	},
 	dropColor: function(e){
 		e.preventDefault();
-		console.log('Drop');
+		//console.log('Drop');
+		//console.log(e.target);
 
 		UI.showMove('off');
-
-		if(e.target.parentNode.parentNode.getAttribute('data-row') != Model.currentStep){
-			return false;
-		}
 
 		var color = e.dataTransfer.getData('text');
 
 		if(e.target.className == 'mapper_elem'){
+			var row = e.target.parentNode.parentNode;
+			if(row.getAttribute('data-row') != Model.currentStep){
+				return false;
+			}
 			e.target.setAttribute('data-color', color);
 			e.target.style.backgroundColor = color;
+			Model.drop = true;
+			Model.put(e.target.getAttribute('data-pos'), color);
+
 		}else if(e.target.className == 'color'){
 			console.log(color);
 			if(e.target.getAttribute('data-color') == color){
