@@ -129,10 +129,23 @@ var UI = {
 			}
 		}
 	},
+	moveValidate: function(){
+		var validate = document.getElementById('validate');
+
+		style = window.getComputedStyle(validate),
+		topCss = style.getPropertyValue('top');
+		var top = parseInt(topCss, 10) + 60;
+		validate.style.top = top + 'px';
+
+		// validate.style.top = parseFloat(validate.style.top) + 60 + 'px';
+
+	},
 
 	clickColor:function(e){
 		var from = e.target.getAttribute('data-color');
-		var targetColors = document.getElementById('row_'+UI.currentStep).getElementsByClassName('pions')[0].getElementsByClassName('mapper_elem');
+		var targetColors = document.getElementById('row_'+Model.currentStep)
+			.getElementsByClassName('pions')[0]
+			.getElementsByClassName('mapper_elem');
 
 		for (var i = 0; i < targetColors.length; i++) {
 			if (!targetColors[i].getAttribute('data-color')) {

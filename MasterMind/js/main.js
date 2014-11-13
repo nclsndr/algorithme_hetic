@@ -45,6 +45,7 @@ function Game(username){
 			for(var i = 0; i < code.length; i++){
 				var occurance = Game.combination.indexOf(code[i]);
 				if(occurance != -1){
+
 					if(occurance == i){
 						UI.render.helper(i, 'green');
 					}else{
@@ -56,7 +57,7 @@ function Game(username){
 				}
 			}
 
-
+			UI.moveValidate();
 			Model.nextStep();
 		}
 	}

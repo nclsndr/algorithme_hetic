@@ -125,9 +125,20 @@ span:hover{
 }
 
 .btn-validate{
-	height: 25px;
-	width: 75px;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 500;
+	font-size: 16px;
+	height: 30px;
+	width: 90px;
+	background-color: #8bd99d;
+	border: none;
 	text-transform: uppercase;
+}
+
+.btn-validate:hover{
+	cursor: pointer;
+	background-color: #009933;
+	color: #fff;
 }
 
 .block-game span{
