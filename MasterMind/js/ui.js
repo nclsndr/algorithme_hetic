@@ -106,7 +106,9 @@ var UI = {
 			document.getElementById('username').innerHTML = username;
 		},
 		helper: function(key, color){
-
+			var row = document.getElementById('row_' + Model.currentStep);
+			var results = row.childNodes[1].childNodes;
+			results[key].style.backgroundColor = color;
 		}
 	},
 

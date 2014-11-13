@@ -37,12 +37,21 @@ function Game(username){
 	this.nextStep = function(){
 		var code = Model.code;
 
-		if(code.length == Settings.range){
-			console.log(Game.combination);
-			for(var i = 0; i < code.length; i++){
-				if(Game.combination.indexOf(code[i]) != -1){
+		console.log(Game.combination);
+		console.log(code);
 
+		if(code.length == Settings.range){
+
+			for(var i = 0; i < code.length; i++){
+				var occurance = Game.combination.indexOf(code[i]);
+				if(occurance != -1){
+					if(occurance == i){
+						UI.render.helper(i, 'green');
+					}else{
+						UI.render.helper(i, 'red');
+					}
 				}else{
+					console.log('faux');
 					UI.render.helper(i, 'black');
 				}
 			}

@@ -114,7 +114,7 @@ span:hover{
 .block-game{
 	float: left;
 	position: relative;
-	width: 500px;
+	width: 600px;
 	margin-left: 150px;
 }
 
@@ -142,6 +142,26 @@ span:hover{
 	-webkit-border-radius: 50px;
 	-moz-border-radius: 50px;
 	-o-border-radius: 50px;
+}
+
+.pions{
+	width: 450px;
+	float: left;
+}
+
+.results{
+	float: left;
+	width: 50px;
+	margin-top: 25px;
+	margin-left: 50px;
+}
+.results span{
+	width: 3px;
+	height: 35px;
+	margin: 0;
+	margin-right: 8px;
+	padding: 0;
+	border: none;
 }
 
 .row{
