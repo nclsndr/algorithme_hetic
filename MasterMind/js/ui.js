@@ -1,33 +1,37 @@
 var UI = {
-	currentStep:0,
+
 	init:function(username){
-		UI.currentStep = 0;
+		Model.currentStep = 0;
+		// creation item
 		UI.items(function(singleRow){
+			// creation ligne
 			UI.row(singleRow, function(rows){
+				// affichage pion
 				UI.render.mapper(rows, function(){
-					 var spans = document.getElementsByClassName('mapper_elem');
-					 for (var i = 0; i < spans.length; i++) {
-					 	spans[i].addEventListener('click',UI.clickMapper, false);
-					 	spans[i].addEventListener('dragstart', UI.dragColor, false);
-					 	spans[i].addEventListener('dragover', UI.dragOver, false);
-					 	spans[i].addEventListener('drop', UI.dropColor, false);
-					 	spans[i].addEventListener('dragend', UI.dragEnd, false);
-					 };
+					var spans = document.getElementsByClassName('mapper_elem');
+					for (var i = 0; i < spans.length; i++) {
+						spans[i].addEventListener('click',UI.clickMapper, false);
+						spans[i].addEventListener('dragstart', UI.dragColor, false);
+						spans[i].addEventListener('dragover', UI.dragOver, false);
+						spans[i].addEventListener('drop', UI.dropColor, false);
+						spans[i].addEventListener('dragend', UI.dragEnd, false);
+					};
 				});
 			});
 		});
 		UI.render.colors(function(){
 			var spans = document.getElementsByClassName('color');
-			 for (var i = 0; i < spans.length; i++) {
-			 	spans[i].addEventListener('click',UI.clickColor, false);
-			 	spans[i].addEventListener('dragstart', UI.dragColor, false);
-			 	spans[i].addEventListener('dragover', UI.dragOver, false);
+			for (var i = 0; i < spans.length; i++) {
+				spans[i].addEventListener('click',UI.clickColor, false);
+				spans[i].addEventListener('dragstart', UI.dragColor, false);
+				spans[i].addEventListener('dragover', UI.dragOver, false);
 				spans[i].addEventListener('drop', UI.dropColor, false);
-			 };
+			};
 		});
 		UI.render.username(username);
 		// console.log(mapper);
 	},
+
 	items:function(callback){
 		var elems = document.createElement('div');
 
@@ -54,12 +58,14 @@ var UI = {
 
 		return callback.call(this, elems);
 	},
+
 	row:function(singleRow, callback){
 		var rows = document.createElement('div');
 		for (var i = 0; i < Settings.possibilities; i++) {
 			var newRow = singleRow.cloneNode(true);
 			newRow.setAttribute('id', 'row_'+i);
 			newRow.setAttribute('class', 'row');
+			newRow.setAttribute('data-row', i);
 			rows.appendChild(newRow);
 			if (i == Settings.possibilities-1) {
 				var clear = document.createElement('div');
@@ -69,6 +75,7 @@ var UI = {
 		}
 		return callback.call(this, rows);
 	},
+
 	render:{
 		mapper: function(domElem, callback){
 			document.getElementById('mapper').appendChild(domElem);
@@ -90,9 +97,25 @@ var UI = {
 			document.getElementById('username').innerHTML = username;
 		}
 	},
+
 	clickMapper:function(e){
 		e.target
 	},
+	showMove: function(status){
+		var container_pion = document.getElementById('row_' + Model.currentStep).childNodes[0];
+		var pions = container_pion.childNodes;
+		for(var i = 0; i < pions.length; i++){
+			if(pions[i].getAttribute('data-color') == null){
+				if(status == 'on'){
+					pions[i].style.backgroundColor = "#7f8c8d";
+				}else if(status == 'off'){
+					pions[i].style.backgroundColor = "#000";
+				}
+
+			}
+		}
+	},
+
 	clickColor:function(e){
 		var from = e.target.getAttribute('data-color');
 		var targetColors = document.getElementById('row_'+UI.currentStep).getElementsByClassName('pions')[0].getElementsByClassName('mapper_elem');
@@ -108,9 +131,13 @@ var UI = {
 	dragColor: function(e){
 		console.log('Drag start');
 		console.log(e.target);
+
+		UI.showMove('on');
+
 		var span = e.target;
 		if(span.getAttribute('data-color') != null){
 			e.dataTransfer.setData('text', span.getAttribute('data-color'));
+			Model.item = e.target;
 		}
 
 	},
@@ -120,25 +147,35 @@ var UI = {
 	dropColor: function(e){
 		e.preventDefault();
 		console.log('Drop');
-		console.log(e.target);
+
+		UI.showMove('off');
+
+		if(e.target.parentNode.parentNode.getAttribute('data-row') != Model.currentStep){
+			return false;
+		}
+
 		var color = e.dataTransfer.getData('text');
 
 		if(e.target.className == 'mapper_elem'){
 			e.target.setAttribute('data-color', color);
 			e.target.style.backgroundColor = color;
 		}else if(e.target.className == 'color'){
+			console.log(color);
 			if(e.target.getAttribute('data-color') == color){
-
+				Model.drop = true;
 			}else{
+				Model.drop = false;
 				alert('mauvaise couleur');
 			}
 		}
 	},
 	dragEnd: function(e){
-		console.log('drag end');
-		console.log(e.target);
-		e.target.removeAttribute('data-color');
-		e.target.style.backgroundColor = '#000';
+		if(Model.drop == true){
+			console.log('drag end');
+			console.log(e.target);
+			e.target.removeAttribute('data-color');
+			e.target.style.backgroundColor = '#000';
+		}
 	}
 
 }

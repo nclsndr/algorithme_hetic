@@ -18,10 +18,12 @@ var instanceOfGame;
 function Game(username){
 	this.username = username;
 	this.combination = [];
+
 	this.init = function(){
 		self.newGame();
 		UI.init(username);
 	}
+
 	this.newGame = function(){
 		for (var i = 0; i < Settings.range; i++) {
 			// console.log(Math.floor(Math.random()*Settings.colors.length));
