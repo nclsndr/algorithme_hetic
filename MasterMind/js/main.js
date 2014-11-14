@@ -11,7 +11,7 @@
 var Settings ={
 	range : 4,
 	possibilities : 10,
-	colors : ['#f3c227', '#f26711', '#bdc9f2', '#5d9593','#003e08', '#631826', '#101125', '#F1CAAB']
+	colors : ['#f3c227', '#f26711', '#bdc9f2', '#5d9593','#003e08', '#631826', '#130A75', '#F1CAAB']
 }
 var instanceOfGame;
 
@@ -47,6 +47,7 @@ function Game(username){
 				if(occurance != -1){
 
 					if(occurance == i){
+						Model.validate(i, code[i]);
 						UI.render.helper(i, 'green');
 					}else{
 						UI.render.helper(i, 'red');
@@ -57,10 +58,12 @@ function Game(username){
 				}
 			}
 
-			UI.moveValidate();
 			Model.nextStep();
+			UI.moveValidate();
+			UI.putValidate();
 		}
 	}
+
 
 	var self = this;
 	return this;

@@ -120,7 +120,7 @@ span:hover{
 .block-game{
 	float: left;
 	position: relative;
-	width: 600px;
+	width: 620px;
 	margin-left: 150px;
 }
 
@@ -169,12 +169,12 @@ span:hover{
 
 .results{
 	float: left;
-	width: 50px;
-	margin-top: 25px;
+	width: 55px;
+	margin-top: 30px;
 	margin-left: 50px;
 }
 .results span{
-	width: 4px;
+	width: 5px;
 	height: 40px;
 	margin: 0;
 	margin-right: 8px;

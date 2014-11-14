@@ -129,12 +129,23 @@ var UI = {
 			}
 		}
 	},
+
 	moveValidate: function(){
 		var validate = document.getElementById('validate');
 		style = window.getComputedStyle(validate),
 		topCss = style.getPropertyValue('top');
 		var top = parseInt(topCss, 10) + 75;
 		validate.style.top = top + 'px';
+	},
+
+	putValidate: function(){
+		var pions = document.getElementById('row_' + Model.currentStep)
+					.getElementsByClassName('mapper_elem');
+
+		for(var i = 0; i < Model.valide.length; i++){
+			pions[i].setAttribute('data-color', Model.valide[i]);
+			pions[i].style.backgroundColor = Model.valide[i];
+		}
 	},
 
 	clickColor:function(e){
