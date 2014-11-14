@@ -131,14 +131,10 @@ var UI = {
 	},
 	moveValidate: function(){
 		var validate = document.getElementById('validate');
-
 		style = window.getComputedStyle(validate),
 		topCss = style.getPropertyValue('top');
-		var top = parseInt(topCss, 10) + 60;
+		var top = parseInt(topCss, 10) + 75;
 		validate.style.top = top + 'px';
-
-		// validate.style.top = parseFloat(validate.style.top) + 60 + 'px';
-
 	},
 
 	clickColor:function(e){
@@ -151,6 +147,9 @@ var UI = {
 			if (!targetColors[i].getAttribute('data-color')) {
 				targetColors[i].setAttribute('data-color', from);
 				targetColors[i].style.backgroundColor = from;
+
+				Model.put(targetColors[i].getAttribute('data-pos'), from);
+
 				return
 			}
 		};
