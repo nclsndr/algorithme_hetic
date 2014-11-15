@@ -191,11 +191,17 @@ span:hover{
 	filter: blur(5px);
 }
 
-/*span{
-	display: block;
-	width: 30px;
-	height: 30px;
-	background: red;
-	float: left;
-	margin-left: 5px;
-}*/
+.win{
+	position: absolute;
+	top: 45%;
+	z-index: 1;
+	width: 100%;
+	text-align: center;
+	background-color: #e74c3c;
+}
+
+.win .message{
+	text-transform: uppercase;
+	color: #000;
+	font-size: 40px;
+}

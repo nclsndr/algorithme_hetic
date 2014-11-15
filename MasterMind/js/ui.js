@@ -1,5 +1,7 @@
 var UI = {
 
+	validate: document.getElementById('validate'),
+
 	init:function(username){
 		Model.currentStep = 0;
 		// creation item
@@ -29,7 +31,7 @@ var UI = {
 			};
 		});
 
-		document.getElementById('validate').addEventListener('click', Game.nextStepV2, false);
+		validate.addEventListener('click', Game.nextStepV2, false);
 		UI.render.username(username);
 		// console.log(mapper);
 	},
@@ -132,7 +134,6 @@ var UI = {
 	},
 
 	moveValidate: function(){
-		var validate = document.getElementById('validate');
 		style = window.getComputedStyle(validate),
 		topCss = style.getPropertyValue('top');
 		var top = parseInt(topCss, 10) + 75;
@@ -144,15 +145,18 @@ var UI = {
 					.getElementsByClassName('mapper_elem');
 
 		for(var i = 0; i < Model.valide.length; i++){
-			pions[i].setAttribute('data-color', Model.valide[i]);
-			pions[i].style.backgroundColor = Model.valide[i];
-			Model.put(pions[i].getAttribute('data-pos'), Model.valide[i]);
-
+			if(Model.valide[i] != 'undefined'){
+				pions[i].setAttribute('data-color', Model.valide[i]);
+				pions[i].style.backgroundColor = Model.valide[i];
+				Model.put(pions[i].getAttribute('data-pos'), Model.valide[i]);
+			}
 		}
 	},
 
 	win: function(){
-
+		validate.disabled = true;
+		validate.setAttribute("disabled", "disabled");
+		document.getElementById('win').classList.remove('hide');
 	},
 
 	clickColor:function(e){
