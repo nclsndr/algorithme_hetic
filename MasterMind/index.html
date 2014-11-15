@@ -11,25 +11,26 @@
 	<link rel="author" href="humans.txt">
 </head>
 <body>
+	<header>
+		<h3><a href="/algorithme_hetic/MasterMind/">Mastermind Hetic</a></h3>
+	</header>
 	<div class="container">
-		<header>
+		<div id="start" class="block-start">
 			<h1>Mastermind</h1>
-			<div class="info">
-				<span>i</span>
-			</div>
-			<div class="clearfix"></div>
-		</header>
-		<div id="start" class="">
-			<button id="start_bt" class="start-game fadeInUp">Nouvelle partie</button>
+			<h2>Le classique des jeux de société</h2>
 			<div class="rules">
-				<h2>Règles du jeu</h2>
-				<ul class="rules-list">
-					<li>Dechiffrer la combinaison secrète</li>
-					<li>4 pions de couleurs</li>
-					<li>10 tentatives maximum</li>
-					<li>Des indices au fur et à mesure</li>
-				</ul>
+				<h3>L'ordinateur choisit un code secret</h3>
+				<p>
+				Votre but est de le retrouver en faisant des propositions.
+				Vous choisissez entre<br> 8 couleurs, qui peuvent être positionnés à 4 endroits différents.
+				À chaque<br> proposition, l’ordinateur vous indiquera
+				le nombre de pions de la bonne<br> couleur bien placés, et le nombre de pions de la bonne couleur mal placés.<br>
+				Un code peut contenir plusieurs fois la même couleur.<br>
+				</p>
+				<p><strong>Vous n'avez que 10 propositions possibles, soyez astucieux</strong></p>
+
 			</div>
+			<button id="start_bt" class="start-game fadeInUp">Commencer une partie</button>
 		</div>
 		<div id="game" class="hide">
 			<div id="user" class="block-user">
