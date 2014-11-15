@@ -5,7 +5,7 @@
 // Bleu2 (vert) : #5d9593
 // Vert : #003e08
 // Rouge Bordeaux :#631826
-// Bleu Marine : #101125
+// Bleu Marine : #101125 // #130A75
 // Beige : #F1CAAB
 
 var Settings ={
@@ -36,6 +36,7 @@ function Game(username){
 
 	this.nextStep = function(){
 		var code = Model.code;
+		var  right_place = 0;
 
 		console.log(Game.combination);
 		console.log(code);
@@ -52,15 +53,64 @@ function Game(username){
 					}else{
 						UI.render.helper(i, 'red');
 					}
+
 				}else{
 					console.log('faux');
 					UI.render.helper(i, 'black');
 				}
 			}
 
-			Model.nextStep();
-			UI.moveValidate();
-			UI.putValidate();
+			if(right_place == Settings.range){
+
+			}else{
+				Model.nextStep();
+				UI.moveValidate();
+				UI.putValidate();
+			}
+		}
+	},
+
+	this.nextStepV2 = function(){
+		var code = Model.code;
+		var  right_place = 0;
+
+		console.log(Game.combination);
+		console.log(code);
+
+		if(code.length == Settings.range){
+
+			for(var i = 0; i < code.length; i++){
+
+				for(var j = 0; j < Game.combination.length; j++){
+					// occurance
+					if(code[i] == Game.combination[j]){
+						// occurance et bonne position
+						if( i == j){
+							Model.validate(j, code[j]);
+							UI.render.helper(j, 'green');
+							right_place++;
+							break;
+						// occurance mais mauvaise position
+						}else if(typeof Model.valide[j] == 'undefined'){
+							UI.render.helper(i, 'red');
+							break;
+						}
+					// mauvaise piece
+					}else{
+						UI.render.helper(i, 'black');
+					}
+				}
+			}
+			console.log('Validate');
+			console.log(Model.valide);
+			if(right_place == Settings.range){
+				UI.win();
+				console.log('Vous avez gagné');
+			}else{
+				Model.nextStep();
+				UI.moveValidate();
+				UI.putValidate();
+			}
 		}
 	}
 

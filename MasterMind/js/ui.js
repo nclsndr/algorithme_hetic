@@ -28,7 +28,8 @@ var UI = {
 				spans[i].addEventListener('drop', UI.dropColor, false);
 			};
 		});
-		document.getElementById('validate').addEventListener('click', Game.nextStep, false);
+
+		document.getElementById('validate').addEventListener('click', Game.nextStepV2, false);
 		UI.render.username(username);
 		// console.log(mapper);
 	},
@@ -145,7 +146,13 @@ var UI = {
 		for(var i = 0; i < Model.valide.length; i++){
 			pions[i].setAttribute('data-color', Model.valide[i]);
 			pions[i].style.backgroundColor = Model.valide[i];
+			Model.put(pions[i].getAttribute('data-pos'), Model.valide[i]);
+
 		}
+	},
+
+	win: function(){
+
 	},
 
 	clickColor:function(e){
