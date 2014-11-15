@@ -30,7 +30,13 @@
 				<p><strong>Vous n'avez que 10 propositions possibles, soyez astucieux</strong></p>
 
 			</div>
-			<button id="start_bt" class="start-game fadeInUp">Commencer une partie</button>
+			<div class="input">
+				<label for="name">Votre nom</label>
+				<input id="name" type="text" name="name">
+			</div>
+			<div class="load">
+				<button id="start_bt" class="start-game fadeInUp">Commencer une partie</button>
+			</div>
 		</div>
 		<div id="game" class="hide">
 			<div id="user" class="block-user">
@@ -48,10 +54,8 @@
 		</div>
 	</div>
 
-	<div id="win" class="win hide animated zoomIn">
-		<div class="message">
-			<p>Vous avez gagné!</p>
-		</div>
+	<div id="end" class="hide animated zoomIn">
+		<div id="message" class="message"></div>
 	</div>
 
 	<script type="text/javascript" src="js/model.js"></script>

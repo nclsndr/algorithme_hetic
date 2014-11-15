@@ -33,7 +33,6 @@ var UI = {
 
 		validate.addEventListener('click', Game.nextStepV2, false);
 		UI.render.username(username);
-		// console.log(mapper);
 	},
 
 	items:function(callback){
@@ -145,7 +144,8 @@ var UI = {
 					.getElementsByClassName('mapper_elem');
 
 		for(var i = 0; i < Model.valide.length; i++){
-			if(Model.valide[i] != 'undefined'){
+			console.log(Model.valide[i]);
+			if(typeof Model.valide[i] != 'undefined'){
 				pions[i].setAttribute('data-color', Model.valide[i]);
 				pions[i].style.backgroundColor = Model.valide[i];
 				Model.put(pions[i].getAttribute('data-pos'), Model.valide[i]);
@@ -153,10 +153,21 @@ var UI = {
 		}
 	},
 
-	win: function(){
+	endGame: function(status){
 		validate.disabled = true;
 		validate.setAttribute("disabled", "disabled");
-		document.getElementById('win').classList.remove('hide');
+
+		var end = document.getElementById('end');
+		var message = document.getElementById('message');
+
+		end.classList.remove('hide');
+		end.classList.add(status);
+
+		if(status == 'win'){
+			message.innerHTML = "<p>Vous avez gagné !</p>";
+		}else{
+			message.innerHTML = "<p>Vous avez perdu !</p>";
+		}
 	},
 
 	clickColor:function(e){

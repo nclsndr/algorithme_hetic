@@ -91,6 +91,8 @@ header .info span:hover{
 .block-start .rules{
 	margin-top: 50px;
 	margin-bottom: 50px;
+	margin-left: 15%;
+	margin-right: 15%;
 	border: 1px solid #102A40;
 	padding-top: 25px;
 	padding-bottom: 25px;
@@ -244,17 +246,40 @@ span:hover{
 	filter: blur(5px);
 }
 
-.win{
+#end{
 	position: absolute;
 	top: 45%;
 	z-index: 1;
 	width: 100%;
 	text-align: center;
+}
+
+.win{
+	background-color: #21537F;
+}
+.loose{
 	background-color: #e74c3c;
 }
 
-.win .message{
+.message{
 	text-transform: uppercase;
-	color: #000;
+	color: #fff;
 	font-size: 40px;
+}
+
+.input{
+	margin: auto;
+	margin-bottom: 45px;
+	text-align: center;
+	width: 220px;
+}
+
+.input label{
+	text-transform: uppercase;
+}
+
+input#name{
+	width: 200px;
+	height: 30px;
+	font-size: 18px;
 }

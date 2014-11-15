@@ -1,17 +1,16 @@
-
-// Jaune : #f3c227
-// Orange : #f26711
-// Bleu : #bdc9f2
-// Bleu2 (vert) : #5d9593
-// Vert : #003e08
-// Rouge Bordeaux :#631826
-// Bleu Marine : #101125 // #130A75
+// Jaune : #f3c227// #f1C40f
+// Orange : #f26711 // #e67e22
+// Bleu : #bdc9f2 // #3498db
+// Bleu2 (vert) : #5d9593 // #16a085
+// Vert : #003e08 // #27ae60
+// Rouge Bordeaux :#631826 // #c0392b
+// Bleu Marine : #101125 // #2c3e50
 // Beige : #F1CAAB
 
 var Settings ={
 	range : 4,
 	possibilities : 10,
-	colors : ['#f3c227', '#f26711', '#bdc9f2', '#5d9593','#003e08', '#631826', '#130A75', '#F1CAAB']
+	colors : ['#f1C40f', '#e67e22', '#3498db', '#16a085','#27ae60', '#c0392b', '#2c3e50', '#F1CAAB']
 }
 var instanceOfGame;
 
@@ -28,7 +27,6 @@ function Game(username){
 
 	this.newGame = function(){
 		for (var i = 0; i < Settings.range; i++) {
-			// console.log(Math.floor(Math.random()*Settings.colors.length));
 			self.combination.push(Settings.colors[Math.floor(Math.random()*Settings.colors.length)]);
 		}
 		console.log(self.combination);
@@ -101,11 +99,16 @@ function Game(username){
 					}
 				}
 			}
+
 			console.log('Validate');
 			console.log(Model.valide);
+			console.log(Model.currentStep);
 			if(right_place == Settings.range){
-				UI.win();
+				UI.endGame('win');
 				console.log('Vous avez gagné');
+			}else if(Model.currentStep == 9){
+				UI.endGame('loose');
+				console.log('Vous avez perdu');
 			}else{
 				Model.nextStep();
 				UI.moveValidate();
@@ -113,7 +116,6 @@ function Game(username){
 			}
 		}
 	}
-
 
 	var self = this;
 	return this;
@@ -123,7 +125,14 @@ document.getElementById('start_bt').addEventListener('click', function(){
 	document.getElementById('start').classList.add("hide");
 	document.getElementById('game').classList.remove("hide");
 
-	Game = new Game('Paul fatigué');
+	var name = document.getElementById('name').value;
+
+	if(name == ''){
+		Game = new Game('Anonyme');
+	}else{
+		Game = new Game(name);
+	}
+
 	Game.init();
 
 }, false);
