@@ -1,5 +1,5 @@
 var UI = {
-
+	// boutton de validation de ligne
 	validate: document.getElementById('validate'),
 
 	init:function(username){
@@ -12,6 +12,7 @@ var UI = {
 				UI.render.mapper(rows, function(){
 					var spans = document.getElementsByClassName('mapper_elem');
 					for (var i = 0; i < spans.length; i++) {
+						// evenement pour la gestion du drag & drop
 						spans[i].addEventListener('click',UI.clickMapper, false);
 						spans[i].addEventListener('dragstart', UI.dragColor, false);
 						spans[i].addEventListener('dragover', UI.dragOver, false);
@@ -21,9 +22,12 @@ var UI = {
 				});
 			});
 		});
+
+		// affichage du choix des couleurs pour l'utilisateur
 		UI.render.colors(function(){
 			var spans = document.getElementsByClassName('color');
 			for (var i = 0; i < spans.length; i++) {
+				// evenement pour la gestion du drag & drop
 				spans[i].addEventListener('click',UI.clickColor, false);
 				spans[i].addEventListener('dragstart', UI.dragColor, false);
 				spans[i].addEventListener('dragover', UI.dragOver, false);
@@ -31,14 +35,16 @@ var UI = {
 			};
 		});
 
+		// on passe à la ligne suivante
 		validate.addEventListener('click', Game.nextStepV2, false);
 		UI.render.username(username);
 	},
 
+	// creation des items
 	items:function(callback){
 		var elems = document.createElement('div');
-
 		var pions = document.createElement('div');
+
 		pions.setAttribute('class', 'pions');
 
 		for (var i = 0; i < Settings.range; i++) {
@@ -47,12 +53,15 @@ var UI = {
 			pawn.setAttribute('data-pos', i);
 			pawn.setAttribute('draggable', true);
 			pions.appendChild(pawn);
+
 			if (i == Settings.range-1) {
 				var clear = document.createElement('div');
 				clear.setAttribute('class', 'clearfix');
 				pions.appendChild(clear);
 			}
+
 		}
+
 		var results = document.createElement('div');
 		results.setAttribute('class', 'results');
 
@@ -70,6 +79,7 @@ var UI = {
 		return callback.call(this, elems);
 	},
 
+	// creations des lignes
 	row:function(singleRow, callback){
 		var rows = document.createElement('div');
 		for (var i = 0; i < Settings.possibilities; i++) {
@@ -113,10 +123,7 @@ var UI = {
 			results[key].style.backgroundColor = color;
 		}
 	},
-
-	clickMapper:function(e){
-		e.target
-	},
+	// affichage des deplacements possibles lors d'un drag & drop
 	showMove: function(status){
 		var container_pion = document.getElementById('row_' + Model.currentStep).childNodes[0];
 		var pions = container_pion.childNodes;

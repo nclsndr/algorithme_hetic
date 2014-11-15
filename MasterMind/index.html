@@ -11,10 +11,14 @@
 	<link rel="author" href="humans.txt">
 </head>
 <body>
+	<!-- header -->
 	<header>
 		<h3><a href="/algorithme_hetic/MasterMind/">Mastermind Hetic</a></h3>
 	</header>
+	<!-- header -->
+	<!-- container -->
 	<div class="container">
+		<!-- block start -->
 		<div id="start" class="block-start">
 			<h1>Mastermind</h1>
 			<h2>Le classique des jeux de société</h2>
@@ -38,25 +42,33 @@
 				<button id="start_bt" class="start-game fadeInUp">Commencer une partie</button>
 			</div>
 		</div>
+		<!-- block start -->
+		<!-- block game -->
 		<div id="game" class="hide">
+			<!-- block user color -->
 			<div id="user" class="block-user">
-
 				<h3 id="username" class=""></h3>
 				<div id="colors" class="colors"></div>
 			</div>
+			<!-- block user color -->
 
+			<!-- block game panel -->
 			<div id="mapper" class="block-game">
 				<div id="validate" class="validate">
 					<button class="btn-validate">Valider</button>
 				</div>
-
 			</div>
+			<!-- block game panel -->
 		</div>
+		<!-- block game -->
 	</div>
+	<!-- container -->
 
+	<!-- end message -->
 	<div id="end" class="hide animated zoomIn">
 		<div id="message" class="message"></div>
 	</div>
+	<!-- end message -->
 
 	<script type="text/javascript" src="js/model.js"></script>
 	<script type="text/javascript" src="js/ui.js"></script>
