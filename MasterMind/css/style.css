@@ -253,6 +253,20 @@ span:hover{
 	width: 100%;
 	text-align: center;
 }
+#end .replay{
+	display: block;
+	color: #FFF;
+	text-transform: uppercase;
+	padding: .6rem 1rem;
+	border: 1px solid #FFF;
+	border-radius: 3px;
+	width: 160px;
+	margin: 1rem auto;
+	margin-top: 0;
+}
+#end .replay:hover{
+	background: rgba(255,255,255, .2);
+}
 
 .win{
 	background-color: #21537F;
