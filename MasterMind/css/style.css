@@ -138,12 +138,13 @@ header .info span:hover{
 }
 
 .block-user{
-	float: left;
+	/*float: left;*/
 	max-width: 300px;
 	max-height: 250px;
 	border-right: 1px solid #000;
 	padding-top: 45px;
 	padding-bottom: 45px;
+	position: fixed;
 }
 
 .block-user h3{
@@ -174,10 +175,10 @@ span:hover{
 }
 
 .block-game{
-	float: left;
+	/*float: left;*/
 	position: relative;
 	width: 620px;
-	margin-left: 150px;
+	margin-left: 30%;
 }
 
 .validate{

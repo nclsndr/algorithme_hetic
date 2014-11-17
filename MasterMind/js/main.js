@@ -10,7 +10,7 @@
 var Settings ={
 	range : 4,
 	possibilities : 10,
-	colors : ['#f1C40f', '#e67e22', '#3498db', '#16a085','#27ae60', '#c0392b', '#2c3e50', '#F1CAAB']
+	colors : ['#f1C40f', '#e67e22', '#3498db', '#AD40FF','#27ae60', '#c0392b', '#180EFF', '#F1CAAB']
 }
 var instanceOfGame;
 
